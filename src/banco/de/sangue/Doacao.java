@@ -11,4 +11,41 @@ package banco.de.sangue;
  */
 public class Doacao {
     
+    
+    private Pessoa id;
+    private Doador tipoSangue;
+    private Pessoa nome;
+
+    public Doacao(Pessoa id, Doador tipoSangue, Pessoa nome) {
+        this.id = id;
+        this.tipoSangue = tipoSangue;
+        this.nome = nome;
+    }
+
+    public Pessoa getId() {
+        return id;
+    }
+
+    public void setId(Pessoa id) {
+        this.id = id;
+    }
+
+    public Doador getTipoSangue() {
+        return tipoSangue;
+    }
+
+    public void setTipoSangue(Doador tipoSangue) {
+        this.tipoSangue = tipoSangue;
+    }
+
+    public Pessoa getNome() {
+        return nome;
+    }
+
+    public void setNome(Pessoa nome) {
+        this.nome = nome;
+    }
+    
+    
+    
 }

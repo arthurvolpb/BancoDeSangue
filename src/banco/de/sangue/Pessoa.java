@@ -5,10 +5,72 @@
  */
 package banco.de.sangue;
 
+import java.util.Date;
+
 /**
  *
  * @author Arthur
  */
 public class Pessoa {
+    
+    private int id;
+    private String nome;
+    //private Date dt_nasc;
+    //private int cpf;
+    //private String cidade;
+    
+    //construtor
+
+    public Pessoa(int id, String nome) {
+        this.id = id;
+        this.nome = nome;
+//        this.dt_nasc = dt_nasc;
+//        this.cpf = cpf;
+ //       this.cidade = cidade;
+    }
+
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+//    public Date getDt_nasc() {
+//        return dt_nasc;
+//    }
+//
+//    public void setDt_nasc(Date dt_nasc) {
+//        this.dt_nasc = dt_nasc;
+//    }
+
+//    public int getCpf() {
+//        return cpf;
+//    }
+//
+//    public void setCpf(int cpf) {
+//        this.cpf = cpf;
+//    }
+//
+//    public String getCidade() {
+//        return cidade;
+//    }
+//
+//    public void setCidade(String cidade) {
+//        this.cidade = cidade;
+//    }
+
+
     
 }
