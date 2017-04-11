@@ -5,25 +5,49 @@
  */
 package banco.de.sangue;
 
-import javax.swing.JOptionPane;
 
-/**
- *
- * @author Arthur
- */
+
 public class Main {
-    
-        public static void main(String[] args) {
+
+
+    void consultaDoacao() {
+
+    }
+
+    void liberacao() {
+
+    }
+
+    public static void main(String[] args) {
+
+        Doador d = new Doador();
+        Estoque e = new Estoque();
+//        int i=0;
+//
+//        d.cadastraDoador(0, "Arthur", "a+", "ashdjahdjasd");
+//        
+//        d.listarDoador();
+//        e.setQtdAplus(i++);
+//        System.out.println("qtd A.plus:"+e.getQtdAplus());
+//        e.setQtdAplus(i++);
+//        System.out.println("qtd A.plus:"+e.getQtdAplus());
+
+           
             
-            Doador d1;
-            d1 = new Doador("A+", "asdasdas", 1, "Arthur");
-            
-            System.out.println(d1.getNome());
+            e.retiraEstoque("a+");
+            e.retiraEstoque("a+");
+            e.retiraEstoque("a+");
+            e.retiraEstoque("a+");
+            e.retiraEstoque("a+");
+            e.retiraEstoque("a+");
+            e.retiraEstoque("a+");
+            e.retiraEstoque("a+");
+                   
+            e.listaEstoque();
+          
+
         
-        
-            
-            
-            
+
 //                 int op;
 //        op = Integer.parseInt(JOptionPane.showInputDialog(null, "Bem-vindo ao Banco de Sangue\n")
 //                + "1.Doador"
@@ -42,12 +66,6 @@ public class Main {
 //            case 3:
 //                break;
 //        }
-        
-       
-       
-        
     }
-    
 
-    
 }

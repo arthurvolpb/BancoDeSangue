@@ -13,22 +13,22 @@ import java.util.Date;
  */
 public class Pessoa {
     
-    private int id;
+    
+    
+    
+    
+    
+    private int id = 0;
+
+    public Pessoa() {
+        
+    }
     private String nome;
     //private Date dt_nasc;
     //private int cpf;
     //private String cidade;
     
     //construtor
-
-    public Pessoa(int id, String nome) {
-        this.id = id;
-        this.nome = nome;
-//        this.dt_nasc = dt_nasc;
-//        this.cpf = cpf;
- //       this.cidade = cidade;
-    }
-
 
 
     public int getId() {

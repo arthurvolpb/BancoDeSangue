@@ -5,6 +5,14 @@
  */
 package banco.de.sangue;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Arthur
@@ -20,16 +28,11 @@ public class Estoque {
     private int qtdOplus;
     private int qtdOminus;
 
-    public Estoque(int qtdAplus, int qtdAminus, int qtdBplus, int qtdBminus, int qtdABplus, int qtdABminus, int qtdOplus, int qtdOminus) {
-        this.qtdAplus = qtdAplus;
-        this.qtdAminus = qtdAminus;
-        this.qtdBplus = qtdBplus;
-        this.qtdBminus = qtdBminus;
-        this.qtdABplus = qtdABplus;
-        this.qtdABminus = qtdABminus;
-        this.qtdOplus = qtdOplus;
-        this.qtdOminus = qtdOminus;
+    public Estoque() {
+
     }
+
+    
 
     public void setQtdAplus(int qtdAplus) {
         this.qtdAplus = qtdAplus;
@@ -97,6 +100,309 @@ public class Estoque {
         return qtdOminus;
     }
     
-
+    private static final String FILENAME = "estoque.txt";
     
+    void listaEstoque(){
+        
+        //this.setQtdAplus(qtdAplus);
+
+        String nomeArq = "estoque.txt"; //Nome do arquivo
+        String linha = "";
+        File arq = new File(nomeArq);
+        //VariÃ¡veis para armazenar os dados dos desputados
+        
+        //String[] nome = new String[100];
+
+        int i = 0;
+        int vetorTipoSang[]=new int[8];
+
+        // Teste arquivo existe
+        if (arq.exists()) {
+            //tentando ler arquivo
+            try {
+                //abrindo arquivo para leitura
+                FileReader reader = new FileReader(nomeArq);
+                //leitor do arquivo
+                BufferedReader leitor = new BufferedReader(reader);
+                //Inserindo os dados do arquivo nas variÃ¡veis
+                while (linha != null) {
+                    
+                    linha = leitor.readLine();
+                    vetorTipoSang[i] = Integer.parseInt(linha);
+                    i++;
+
+                }
+            } catch (Exception erro) {
+            }
+
+        } //Se nao existir
+        else {
+            
+            JOptionPane.showMessageDialog(null, "Arquivo nao existe!", "Erro", 0);
+        
+        }
+        
+        this.setQtdAplus(vetorTipoSang[0]);
+        this.setQtdAminus(vetorTipoSang[1]);
+        this.setQtdBplus(vetorTipoSang[2]);
+        this.setQtdBminus(vetorTipoSang[3]);
+        this.setQtdABplus(vetorTipoSang[4]);
+        this.setQtdABminus(vetorTipoSang[5]);
+        this.setQtdOplus(vetorTipoSang[6]);
+        this.setQtdOminus(vetorTipoSang[7]);
+        System.out.println("Unidades de Sangue A+:"+getQtdAplus());
+        System.out.println("Unidades de Sangue A-:"+this.getQtdAminus());
+        System.out.println("Unidades de Sangue B+:"+this.getQtdBplus());
+        System.out.println("Unidades de Sangue B-:"+this.getQtdBminus());
+        System.out.println("Unidades de Sangue AB+:"+this.getQtdABplus());
+        System.out.println("Unidades de Sangue AB-:"+this.getQtdABminus());
+        System.out.println("Unidades de Sangue O+:"+this.getQtdOplus());
+        System.out.println("Unidades de Sangue O-:"+this.getQtdOminus());
+        
+
+    }
+    
+    void addEstoque(String tipo){
+        
+        String nomeArq = "estoque.txt"; //Nome do arquivo
+        String linha = "";
+        File arq = new File(nomeArq);
+        
+        int i = 0;
+        int vetorTipoSang[]=new int[8];
+
+        // Teste arquivo existe
+        if (arq.exists()) {
+            //tentando ler arquivo
+            try {
+                //abrindo arquivo para leitura
+                FileReader reader = new FileReader(nomeArq);
+                //leitor do arquivo
+                BufferedReader leitor = new BufferedReader(reader);
+                //Inserindo os dados do arquivo nas variÃ¡veis
+                while (linha != null) {
+                    
+                    linha = leitor.readLine();
+                    vetorTipoSang[i] = Integer.parseInt(linha);
+                    i++;
+
+                }
+            } catch (Exception erro) {
+            }
+
+        } //Se nao existir
+        else {
+            
+            JOptionPane.showMessageDialog(null, "Arquivo nao existe!", "Erro", 0);
+        
+        }
+        
+        switch(tipo){
+            case "a+":
+                vetorTipoSang[0] = vetorTipoSang[0]+1;
+                
+                break;
+            case "a-":
+                vetorTipoSang[1] = vetorTipoSang[1]+1;
+                break;
+            case "b+":
+                vetorTipoSang[2] = vetorTipoSang[2]+1;
+                break;
+            case "b-":
+                vetorTipoSang[3] = vetorTipoSang[3]+1; 
+                break;
+            case "ab+":
+                vetorTipoSang[4] = vetorTipoSang[4]+1;                
+                break;
+            case "ab-":
+                vetorTipoSang[5] = vetorTipoSang[5]+1;               
+                break;
+            case "o+":
+                vetorTipoSang[6] = vetorTipoSang[6]+1;
+                break;
+            case "o-":
+                vetorTipoSang[7] = vetorTipoSang[7]+1;
+                break;
+ 
+        }
+
+        this.setQtdAplus(vetorTipoSang[0]);
+        this.setQtdAminus(vetorTipoSang[1]);
+        this.setQtdBplus(vetorTipoSang[2]);
+        this.setQtdBminus(vetorTipoSang[3]);
+        this.setQtdABplus(vetorTipoSang[4]);
+        this.setQtdABminus(vetorTipoSang[5]);
+        this.setQtdOplus(vetorTipoSang[6]);
+        this.setQtdOminus(vetorTipoSang[7]);
+
+
+                BufferedWriter bw = null;
+                FileWriter fw = null;
+        		try {
+
+			fw = new FileWriter(FILENAME);
+			bw = new BufferedWriter(fw);
+			bw.write( String.valueOf(vetorTipoSang[0]) );
+                        bw.newLine();
+                        bw.write( String.valueOf(vetorTipoSang[1]) );
+                        bw.newLine();
+                        bw.write( String.valueOf(vetorTipoSang[2]) );
+                        bw.newLine();
+                        bw.write( String.valueOf(vetorTipoSang[3]) );
+                        bw.newLine();
+                        bw.write( String.valueOf(vetorTipoSang[4]) );
+                        bw.newLine();
+                        bw.write( String.valueOf(vetorTipoSang[5]) );
+                        bw.newLine();
+                        bw.write( String.valueOf(vetorTipoSang[6]) );
+                        bw.newLine();
+                        bw.write( String.valueOf(vetorTipoSang[7]) );
+			System.out.println("Done");
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			try {
+
+				if (bw != null)
+					bw.close();
+
+				if (fw != null)
+					fw.close();
+
+			} catch (IOException ex) {
+
+				ex.printStackTrace();
+
+			}
+
+		}
+
+    }
+    
+    
+    void retiraEstoque(String tipo){
+        
+        String nomeArq = "estoque.txt"; //Nome do arquivo
+        String linha = "";
+        File arq = new File(nomeArq);
+        
+        int i = 0;
+        int vetorTipoSang[]=new int[8];
+
+        // Teste arquivo existe
+        if (arq.exists()) {
+            //tentando ler arquivo
+            try {
+                //abrindo arquivo para leitura
+                FileReader reader = new FileReader(nomeArq);
+                //leitor do arquivo
+                BufferedReader leitor = new BufferedReader(reader);
+                //Inserindo os dados do arquivo nas variÃ¡veis
+                while (linha != null) {
+                    
+                    linha = leitor.readLine();
+                    vetorTipoSang[i] = Integer.parseInt(linha);
+                    i++;
+
+                }
+            } catch (Exception erro) {
+            }
+
+        } //Se nao existir
+        else {
+            
+            JOptionPane.showMessageDialog(null, "Arquivo nao existe!", "Erro", 0);
+        
+        }
+        
+        switch(tipo){
+            case "a+":
+                vetorTipoSang[0] = vetorTipoSang[0]-1;
+                
+                break;
+            case "a-":
+                vetorTipoSang[1] = vetorTipoSang[1]-1;
+                break;
+            case "b+":
+                vetorTipoSang[2] = vetorTipoSang[2]-1;
+                break;
+            case "b-":
+                vetorTipoSang[3] = vetorTipoSang[3]-1; 
+                break;
+            case "ab+":
+                vetorTipoSang[4] = vetorTipoSang[4]-1;                
+                break;
+            case "ab-":
+                vetorTipoSang[5] = vetorTipoSang[5]-1;               
+                break;
+            case "o+":
+                vetorTipoSang[6] = vetorTipoSang[6]-1;
+                break;
+            case "o-":
+                vetorTipoSang[7] = vetorTipoSang[7]-1;
+                break;
+ 
+        }
+
+        this.setQtdAplus(vetorTipoSang[0]);
+        this.setQtdAminus(vetorTipoSang[1]);
+        this.setQtdBplus(vetorTipoSang[2]);
+        this.setQtdBminus(vetorTipoSang[3]);
+        this.setQtdABplus(vetorTipoSang[4]);
+        this.setQtdABminus(vetorTipoSang[5]);
+        this.setQtdOplus(vetorTipoSang[6]);
+        this.setQtdOminus(vetorTipoSang[7]);
+
+
+                BufferedWriter bw = null;
+                FileWriter fw = null;
+        		try {
+
+			fw = new FileWriter(FILENAME);
+			bw = new BufferedWriter(fw);
+			bw.write( String.valueOf(vetorTipoSang[0]) );
+                        bw.newLine();
+                        bw.write( String.valueOf(vetorTipoSang[1]) );
+                        bw.newLine();
+                        bw.write( String.valueOf(vetorTipoSang[2]) );
+                        bw.newLine();
+                        bw.write( String.valueOf(vetorTipoSang[3]) );
+                        bw.newLine();
+                        bw.write( String.valueOf(vetorTipoSang[4]) );
+                        bw.newLine();
+                        bw.write( String.valueOf(vetorTipoSang[5]) );
+                        bw.newLine();
+                        bw.write( String.valueOf(vetorTipoSang[6]) );
+                        bw.newLine();
+                        bw.write( String.valueOf(vetorTipoSang[7]) );
+			System.out.println("Done");
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			try {
+
+				if (bw != null)
+					bw.close();
+
+				if (fw != null)
+					fw.close();
+
+			} catch (IOException ex) {
+
+				ex.printStackTrace();
+
+			}
+
+		}
+
+    }
+
 }
