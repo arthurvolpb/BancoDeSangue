@@ -5,6 +5,8 @@
  */
 package banco.de.sangue;
 
+import javax.swing.JOptionPane;
+
 
 
 public class Main {
@@ -22,6 +24,7 @@ public class Main {
 
         Doador d = new Doador();
         Estoque e = new Estoque();
+        Doacao doa = new Doacao();
 //        int i=0;
 //
 //        d.cadastraDoador(0, "Arthur", "a+", "ashdjahdjasd");
@@ -32,40 +35,51 @@ public class Main {
 //        e.setQtdAplus(i++);
 //        System.out.println("qtd A.plus:"+e.getQtdAplus());
 
+           //doa.novaDoacao();
+           doa.idFile();
+           doa.novaDoacao(3, "a+", "Arthur", "23-12-2016");
            
-            
-            e.retiraEstoque("a+");
-            e.retiraEstoque("a+");
-            e.retiraEstoque("a+");
-            e.retiraEstoque("a+");
-            e.retiraEstoque("a+");
-            e.retiraEstoque("a+");
-            e.retiraEstoque("a+");
-            e.retiraEstoque("a+");
+           
+           
                    
-            e.listaEstoque();
+            //e.listaEstoque();
           
 
         
 
-//                 int op;
-//        op = Integer.parseInt(JOptionPane.showInputDialog(null, "Bem-vindo ao Banco de Sangue\n")
-//                + "1.Doador"
-//                + "2.Doacao"
-//                + "3.Estoque"
-//                + "4.Liberacao");
-//        
-//        
-//        switch(op){
-//            
-//            case 1:
-//
-//                break;
-//            case 2:
-//                break;
-//            case 3:
-//                break;
-//        }
+                 int op;
+        op = Integer.parseInt(JOptionPane.showInputDialog(null, "Bem-vindo ao Banco de Sangue\n"
+                + "\n1.Doador"
+                + "\n2.Doacao"
+                + "\n3.Estoque"
+                + "\n4.Liberacao"));
+        
+        switch(op){
+            
+            case 1:
+                op = Integer.parseInt(JOptionPane.showInputDialog(null, "1. Cadastrar Doador"
+                        + "\n2. Listar Doadores\n"));
+                
+                        if(op==1){
+                            d.cadastraDoador(1, "Everton", "a-", "Sangue asdhjash jasdahsjd ");
+                        }else{
+                            d.listarDoador();
+                        }
+                break;
+            case 2:
+                op = Integer.parseInt(JOptionPane.showInputDialog(null, "1. Nova Doacao"
+                        + "\n2. Listar Doações"));
+                break;
+            case 3:
+                op = Integer.parseInt(JOptionPane.showInputDialog(null, "1. Exibir estoque"
+                        + "\n2. Classificar por quantidade de tipo sanguíneo"));
+                break;
+                
+            case 4:
+                op = Integer.parseInt(JOptionPane.showInputDialog(null, "1. Realizar liberação de unidades de sangue"
+                        + "\n2. Exibir histórico de liberação"));
+                break;
+        }
     }
 
 }
