@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package banco.de.sangue;
+package model;
 
 import java.util.Date;
 
@@ -12,17 +12,10 @@ import java.util.Date;
  * @author Arthur
  */
 public class Pessoa {
-    
-    
-    
-    
-    
-    
+
     private int id = 0;
 
-    public Pessoa() {
-        
-    }
+
     private String nome;
     //private Date dt_nasc;
     //private int cpf;
@@ -30,7 +23,11 @@ public class Pessoa {
     
     //construtor
 
+            public Pessoa() {
+        
+    }
 
+    
     public int getId() {
         return id;
     }

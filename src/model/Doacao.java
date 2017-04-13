@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package banco.de.sangue;
+package model;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -81,10 +81,6 @@ public class Doacao {
         this.idDoacao = idDoacao;
     }
 
-
-
-
-    
     public void idFile(){
         
         String nomeArq = "id_doacao.txt"; //Nome do arquivo
@@ -135,7 +131,7 @@ public class Doacao {
 			bw = new BufferedWriter(fw);
 			bw.write( String.valueOf(idDoacao) );
                        
-			System.out.println("Done");
+			
 
 		} catch (IOException e) {
 

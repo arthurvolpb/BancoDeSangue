@@ -1,5 +1,5 @@
 
-package banco.de.sangue;
+package model;
 
 
 

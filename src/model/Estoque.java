@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package banco.de.sangue;
+package model;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -257,7 +257,7 @@ public class Estoque {
                         bw.write( String.valueOf(vetorTipoSang[6]) );
                         bw.newLine();
                         bw.write( String.valueOf(vetorTipoSang[7]) );
-			System.out.println("Done");
+			
 
 		} catch (IOException e) {
 
@@ -378,7 +378,7 @@ public class Estoque {
                         bw.write( String.valueOf(vetorTipoSang[6]) );
                         bw.newLine();
                         bw.write( String.valueOf(vetorTipoSang[7]) );
-			System.out.println("Done");
+			
 
 		} catch (IOException e) {
 
